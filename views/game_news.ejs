@@ -1,0 +1,30 @@
+<%- include('partials/header'); -%>
+
+<main class="container mt-5">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/games">Games</a></li> 
+      <li class="breadcrumb-item active" aria-current="page">News</li>
+    </ol>
+  </nav>
+
+  <p style="color: rgb(159, 159, 159);">Latest Game Industry News</p>
+  <div class="row">
+    <% newsArticles.forEach(article => { %>
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <% if (article.urlToImage) { %>
+            <img src="<%= article.urlToImage %>" class="card-img-top" alt="<%= article.title %>">
+          <% } %>
+          <div class="card-body">
+            <h5 class="card-title"><%= article.title %></h5>
+            <p class="card-text"><%= article.description %></p>
+            <a href="<%= article.url %>" class="btn btn-warning">Read More</a>
+          </div>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</main>
+
+<%- include('partials/footer'); -%>

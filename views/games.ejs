@@ -1,0 +1,68 @@
+<%- include('partials/header'); -%>
+
+<main class="container mt-5">
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Games</li>
+      <li class="breadcrumb-item active"><a href="/news">News</a></li>
+    </ol>
+  </nav>
+
+  <form class="mb-4" action="/games" method="GET">
+    <div class="input-group">
+      <input type="text" class="form-control" name="search" placeholder="Search for games..." value="<%= searchQuery || '' %>">
+      <div class="input-group-append">
+        <button class="btn btn-warning" type="submit">Search Game</button>
+      </div>
+    </div>
+  </form>
+  
+  <div class="row">
+    <% games.forEach(game => { %>
+      <div class="col-md-3 mb-4">
+        <div class="card">
+          <img src="<%= game.background_image %>" class="card-img-top" alt="<%= game.name %>">
+          <div class="card-body">
+            <h5 class="card-title"><%= game.name %></h5>
+            <p class="card-text"><strong>Release Date:</strong> <%= game.released %></p>
+            <p class="card-text"><strong>Rating:</strong> <%= game.rating %></p>
+            <p class="card-text"><strong>Genres:</strong> <%= game.genres.map(genre => genre.name).join(', ') %></p>
+            <p class="card-text"><strong>Platforms:</strong> <%= game.platforms.map(platform => platform.platform.name).join(', ') %></p>
+            <a href="/games/details/<%= game.id %>" class="btn btn-warning">Details</a>
+          </div>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+
+  <% if (!searchQuery) { %>
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+        <% if (prevPage) { %>
+          <li class="page-item">
+            <a class="page-link" href="<%= `?page=${currentPage - 1}` %>">Previous</a>
+          </li>
+        <% } %>
+
+        <% const maxPagesToShow = 5; // Максимальное количество ссылок на страницы для отображения %>
+        <% const startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2)); %>
+        <% const endPage = Math.min(totalPages, startPage + maxPagesToShow - 1); %>
+
+        <% for (let i = startPage; i <= endPage; i++) { %>
+          <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+            <a class="page-link" href="<%= `?page=${i}` %>"><%= i %></a>
+          </li>
+        <% } %>
+
+        <% if (nextPage) { %>
+          <li class="page-item">
+            <a class="page-link" href="<%= `?page=${currentPage + 1}` %>">Next</a>
+          </li>
+        <% } %>
+      </ul>
+    </nav>
+  <% } %>
+</main>
+
+<%- include('partials/footer'); -%>
