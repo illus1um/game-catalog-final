@@ -15,9 +15,9 @@ module.exports.add_item_get = (req, res) => {
 };
 
 module.exports.add_item_post = async (req, res) => {
-  const { picture, nameRU, nameEN, descriptionRU, descriptionEN } = req.body;
+  const { picture, nameEN, descriptionEN } = req.body;
   try {
-    await Item.create({ picture, nameRU, nameEN, descriptionRU, descriptionEN });
+    await Item.create({ picture, nameEN, descriptionEN });
     res.redirect('/admin');
   } catch (error) {
     console.error('Error adding item:', error);
@@ -38,9 +38,9 @@ module.exports.edit_item_get = async (req, res) => {
 
 module.exports.edit_item_post = async (req, res) => {
   const { id } = req.params;
-  const { picture, nameRU, nameEN, descriptionRU, descriptionEN } = req.body;
+  const { picture, nameEN, descriptionEN } = req.body;
   try {
-    await Item.findByIdAndUpdate(id, { picture, nameRU, nameEN, descriptionRU, descriptionEN });
+    await Item.findByIdAndUpdate(id, { picture, nameEN, descriptionEN });
     res.redirect('/admin');
   } catch (error) {
     console.error('Error updating item:', error);

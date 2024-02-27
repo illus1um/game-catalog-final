@@ -1,10 +1,7 @@
-// routes/homeRoutes.js
-
 const express = require('express');
 const router = express.Router();
 const Item = require('../models/Item');
 
-// Отображение главной страницы
 router.get('/', async (req, res) => {
   try {
     const items = await Item.find();

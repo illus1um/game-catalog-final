@@ -11,7 +11,7 @@ module.exports.news_get = async (req, res) => {
           q: 'steam, RPG, entertainment',
           language: 'en',
           sortBy: 'publishedAt',
-          pageSize: 30
+          pageSize: 40
         }
       });
   

@@ -43,3 +43,16 @@ label{
   font-size: 0.8em;
   font-weight: bold;
 }
+
+#edit {
+  width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
+  border-radius: 3px;
+  background: white;
+}
+
+#games{
+  width: 1000px;
+}

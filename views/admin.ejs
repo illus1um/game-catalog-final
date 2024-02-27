@@ -7,10 +7,10 @@
         <thead>
             <tr>
                 <th>Picture</th>
-                <th>Name (RU)</th>
-                <th>Name (EN)</th>
-                <th>Description (RU)</th>
-                <th>Description (EN)</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Created At</th>
+                <th>Updated At</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -18,10 +18,10 @@
             <% items.forEach(item => { %>
                 <tr>
                     <td><img src="<%= item.picture %>" alt="Picture"></td>
-                    <td><%= item.nameRU %></td>
                     <td><%= item.nameEN %></td>
-                    <td><%= item.descriptionRU %></td>
                     <td><%= item.descriptionEN %></td>
+                    <td><%= item.createdAt %></td>
+                    <td><%= item.updatedAt %></td>
                     <td>
                         <a href="/admin/edit/<%= item._id %>" class="btn btn-primary">Edit</a>
                         <a href="/admin/delete/<%= item._id %>" class="btn btn-danger">Delete</a>

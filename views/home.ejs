@@ -2,14 +2,14 @@
 
 <header class="container my-5">
   <div class="text-center">
-    <h2>Find Games and Read the news</h2>
+    <h2 class="my-3">Find Games and Read the news</h2>
     <a href="/games" class="btn btn-warning">View Games</a>
     <a href="/news" class="btn btn-warning">View Game News</a>
   </div>
 </header>
 
 <main class="container mt-5">
-  <h2 class="text-center">Games that i recommend to play everyone</h2>
+  <h2 class="text-center mb-3">Games that i recommend to play everyone</h2> 
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <% items.forEach((item, index) => { %>
@@ -19,7 +19,7 @@
     <div class="carousel-inner">
       <% items.forEach((item, index) => { %>
         <div class="carousel-item <% if (index === 0) { %>active<% } %>">
-          <img src="<%= item.picture %>" class="d-block w-100" alt="<%= item.nameEN %>">
+          <img src="<%= item.picture %>" class="d-block  img-fluid" alt="<%= item.nameEN %>">
           <div class="carousel-caption d-none d-md-block">
             <h1><%= item.nameEN %></h1>
           </div>

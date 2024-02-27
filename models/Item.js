@@ -3,9 +3,7 @@ const Schema = mongoose.Schema;
 
 const itemSchema = new Schema({
   picture: String,
-  nameRU: String,
   nameEN: String,
-  descriptionRU: String,
   descriptionEN: String,
 }, { timestamps: true });
 
