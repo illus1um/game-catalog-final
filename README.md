@@ -1,6 +1,9 @@
 # Game Catalog
 
 This web application allows users to search and get catalog of all Games and News. It utilizes the Rawg API for Games and their details. The NewsAPI for Game News in Industry. Deploy link: https://lonely-long-johns-toad.cyclic.app/ or https://game-catalog-final.onrender.com/
+to have access to admin panel:
+username: meyrambek
+password:meyrambek
 
 ## Installation
 
