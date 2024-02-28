@@ -53,7 +53,7 @@ Usage: Developers can utilize RawgAPI to enhance their gaming-related applicatio
 
 Documentation: [Rawg Api Documentation](https://rawg.io/apidocs)
 
-2. OpenWeather API
+2. News API
 Description: NewsAPI is a JSON-based API that aggregates news articles from various sources and publishers worldwide. It allows developers to fetch news headlines, articles, and related metadata programmatically.
 
 Features:
