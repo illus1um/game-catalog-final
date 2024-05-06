@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const API_KEY = '2a5b3ff3dfa44f57af65878b2d80ffb8';
+const API_KEY = process.env.NEWS_API_KEY;
 const API_URL = 'https://newsapi.org/v2/everything';
 
 module.exports.news_get = async (req, res) => {

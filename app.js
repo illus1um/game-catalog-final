@@ -6,6 +6,7 @@ const newsRoutes = require('./routes/newsRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const homeRoutes = require('./routes/homeRoutes.js')
 const cookieParser = require('cookie-parser');
+require('dotenv').config();
 const { requireAuth, checkUser, requireRole} = require('./middleware/authMiddleware');
 
 const app = express();
@@ -17,7 +18,7 @@ app.use(cookieParser());
 
 app.set('view engine', 'ejs');
 
-const dbURI = 'mongodb+srv://illus1ve:1q2w3e4r5t@cluster0.zo5qkc6.mongodb.net/gameCatalog';
+const dbURI = process.env.MONGODB_URI;
 mongoose.connect(dbURI)
   .then((result) => app.listen(3000))
   .catch((err) => console.log(err));

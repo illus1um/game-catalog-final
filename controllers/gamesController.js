@@ -1,6 +1,7 @@
 const axios = require('axios');
+require('dotenv').config();
 
-const API_KEY = '60124dcc40f34155a94273a274fbf0f4';
+const API_KEY = process.env.GAME_API_KEY;
 const API_URL = 'https://api.rawg.io/api/games';
 
 module.exports.games_get = async (req, res) => {

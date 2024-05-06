@@ -22,7 +22,7 @@ const requireAuth = (req, res, next) => {
 const checkUser = (req, res, next) => {
   const token = req.cookies.jwt;
   if (token) {
-    jwt.verify(token, 'illus1ve', async (err, decodedToken) => {
+    jwt.verify(token, process.env.SECRET_KEY, async (err, decodedToken) => {
       if (err) {
         res.locals.user = null;
         next();
@@ -42,7 +42,7 @@ const requireRole = (role) => {
   return (req, res, next) => {
     const token = req.cookies.jwt;
     if (token) {
-      jwt.verify(token, 'illus1ve', async (err, decodedToken) => {
+      jwt.verify(token, process.env.SECRET_KEY, async (err, decodedToken) => {
         if (err) {
           console.log(err.message);
           res.redirect('/login');
